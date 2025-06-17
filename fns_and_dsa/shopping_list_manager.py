@@ -12,24 +12,27 @@ def main():
         choice = input("Enter your choice: ")
 
         if choice == '1':
-            # Prompt for and add an item
-            x = str(input("Add your item: "))
-            shopping_list.append(x)
-            pass
+            item = input("Enter the item to add: ")
+            shopping_list.append(item)
+
         elif choice == '2':
-            # Prompt for and remove an item
-            y = str(input("Remove your item: "))
-            shopping_list.remove(y)
-            if y not in shopping_list:
-                print("Not found in the list.")
-            pass
+            item = input("Enter the item to remove: ")
+            if item in shopping_list:
+                shopping_list.remove(item)
+            else:
+                print(f"'{item}' not found in the shopping list.")
+
         elif choice == '3':
-            # Display the shopping list
-            print(shopping_list)
-            pass
+            if shopping_list:
+                for i, item in enumerate(shopping_list, 1):
+                    print(f"{i}. {item}")
+            else:
+                print("The shopping list is currently empty.")
+
         elif choice == '4':
             print("Goodbye!")
             break
+
         else:
             print("Invalid choice. Please try again.")
 
